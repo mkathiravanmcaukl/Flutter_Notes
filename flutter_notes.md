@@ -58,3 +58,34 @@ Here’s a concise explanation of the differences between `async/await`, isolate
 | **Memory**          | Shared              | Isolated            | Isolated             |
 | **Complexity**      | Simple              | Complex             | Simplified           |
 | **Use Case**        | I/O tasks           | Heavy computation   | Lightweight computation |
+
+
+
+## 3 ways to create a singleton class in flutter
+
+  1. Factory constructor
+
+        class Singleton{
+          Singleton._internal()
+          static final Singleton _singleton = Singleton._internal
+    
+          factory Singleton(){
+            return _singleton
+          }
+        }
+
+ 2. Static field with getter
+
+      class Singleton{
+          Singleton._internal()
+          static final Singleton _singleton = Singleton._internal
+          static Singleton get singleton => _singleton
+        }
+     
+
+3. Static field
+
+       class Singleton{
+          Singleton._internal()
+          static final Singleton singleton = Singleton._internal
+        }
