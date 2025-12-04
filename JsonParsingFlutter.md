@@ -59,4 +59,33 @@ Cons: Requires build_runner
           }
 
 
+### 3. Using Libraries (like freezed, built_value)
+
+ --> These libraries not only generate JSON serialization but also add immutability, equaility and pattern matching
+
+ --> Great for immutable models + sealed classes + JSON parsing.
+
+          import 'package:freezed_annotation/freezed_annotation.dart';
+          
+          part 'user.freezed.dart';
+          part 'user.g.dart';
+          
+          @freezed
+          class User with _$User {
+            factory User({
+              required String name,
+              required int age,
+            }) = _User;
+          
+            factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+          }
+
   
+
+### 4. Dynamic Parsing Directly use Map<String, dynamic> for simple cases.
+
+          void main() {
+        String jsonString = '{"name": "Bob", "age": 25}';
+        Map<String, dynamic> jsonMap = jsonDecode(jsonString);
+        print(jsonMap['name']); // Bob
+      }
