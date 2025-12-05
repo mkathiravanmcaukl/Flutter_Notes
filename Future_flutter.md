@@ -50,3 +50,32 @@ Example:
                 
                   print('End');
                 }
+
+
+## Difference between Future.value() and Future.sync()
+
+--> Future.value() creates a future that completes immediately with the given value, regardless of whether the value is available synchronously or asynchronously.
+
+--> Future.sync() executes a function synchronously and returns a future. If the function returns a value, the future completes with that value. If the function throws an error, the future completes with that error.
+    If the function returns a future, Future.sync() waits for that future to complete.
+
+
+Example:
+
+                Future<UserProfile> getUserProfile() {
+                  if (cache.hasProfile) {
+                    // Return cached profile as a future
+                    return Future.value(cache.profile);
+                  }
+                  // Otherwise, fetch from network
+                  return fetchProfileFromNetwork();
+                }
+
+
+                Future<UserProfile> parseProfile(String jsonString) {
+                  return Future.sync(() {
+                    // This might throw if JSON is invalid
+                    return UserProfile.fromJson(jsonDecode(jsonString));
+                  });
+                }
+
