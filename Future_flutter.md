@@ -31,3 +31,22 @@ Example:
           ]);
           print(user); // Output: User from local DB
         }
+
+
+## What is Future.microtask() and when would you use it?
+
+--> Future.microtask() schedules a function to run as soon as possible after the current synchronous code completes, before any event queue tasks.
+
+Example:
+
+                import 'dart:async';
+                
+                void main() {
+                  print('Start');
+                
+                  Future.microtask(() {
+                    print('Microtask executed');
+                  });
+                
+                  print('End');
+                }
