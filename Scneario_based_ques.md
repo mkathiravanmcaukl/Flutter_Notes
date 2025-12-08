@@ -103,3 +103,15 @@ Ex:
               );
             }
           }
+
+## 3. What are all the scroll widgets in flutter?
+
+   a. SingleChildScrollView -> When your content is small but needs scrolling.
+
+   b. ListView -> For long dynamic lists.
+
+   c. GridView -> For gallery-style layouts.
+
+   d. CustomScrollView + Slivers -> For advances, smooth scrolling experiences.
+
+   e. ScrollController -> For full scroll control and animations
