@@ -1,4 +1,4 @@
-## What are the different approaches to Json Parsing in Flutter?
+## What are the different approaches to Json parsing in Flutter?
 
   
 ### 1. Manual Parsing(using dart:convert)
